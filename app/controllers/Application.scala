@@ -17,7 +17,7 @@ class Application extends Controller {
 
   def health = Action {
 
-    val checkHealth = new CheckHealth(serviceName)
+    val checkHealth = new CheckHealthCommand(serviceName)
 
     new Thread(new Runnable {
       override def run(): Unit =  {

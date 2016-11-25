@@ -10,7 +10,7 @@ trait Event
 
 class BaseEvent(val message: String) extends Event
 
-case class CheckHealth(val serviceName : String) extends BaseEvent("checks the service")
+case class CheckHealthCommand(val serviceName : String) extends BaseEvent("checks the service")
 
 case class Stopped() extends BaseEvent(message = "Server is stopped")
 

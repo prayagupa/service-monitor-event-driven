@@ -17,7 +17,7 @@ class HealthCheckMonitor extends Actor {
   val startService = "/usr/local/apache-tomcat-7.0.73/bin/startup.sh"
 
   override def receive: Receive = {
-    case health: CheckHealth => {
+    case health: CheckHealthCommand => {
 
       val serviceStatus = service.serviceStatusEvent(health)
 
