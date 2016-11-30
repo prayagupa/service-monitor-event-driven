@@ -5,7 +5,6 @@ package service
   * on 11/25/16.
   */
 
-
 trait Event
 
 class BaseEvent(val message: String) extends Event

@@ -12,7 +12,9 @@ case class StartServiceCommand(val startService : String) extends BaseEvent("Sta
 class MonitorService {
 
   def serviceStatusEvent(event: CheckHealthCommand): BaseEvent = {
-    if (Seq("/bin/sh", "-c", "ps aux | grep \"" + event.serviceName + "\" | awk '{print $2}'").!!.trim.nonEmpty)
+    val service = "ps aux | grep \"" + event.serviceName + "\" | awk '{print $2}'"
+    println(s"MonitorService : $service")
+    if (Seq("/bin/sh", "-c", service).!!.trim.nonEmpty)
       new Running()
     else
       new Stopped()
